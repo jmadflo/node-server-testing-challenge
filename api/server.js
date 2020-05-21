@@ -9,7 +9,7 @@ server.get('/', (req, res) => {
 })
 
 // Get physicits from database
-server.get('/physicists', (req, res) => {
+server.get('/api/physicists', (req, res) => {
     Physicist.getAll()
         .then(physicists => {
             res.status(201).json(physicists)
@@ -20,7 +20,7 @@ server.get('/physicists', (req, res) => {
 })
 
 // Get physicist by id
-server.get('/physicists/:id', (req, res) => {
+server.get('/api/physicists/:id', (req, res) => {
     Physicist.getById(req.params.id)
         .then(physicist => {
             res.status(201).json(physicist)
@@ -31,7 +31,7 @@ server.get('/physicists/:id', (req, res) => {
 })
 
 // Add Physicist to database
-server.post('/physicists', (req, res) => {
+server.post('/api/physicists', (req, res) => {
     Physicist.postPhysicist(req.body)
         .then(newPhysicist => {
             res.status(201).json(newPhysicist)
@@ -42,7 +42,7 @@ server.post('/physicists', (req, res) => {
 })
 
 // Delete Physicist from database
-server.delete('/physicists/:id', (req, res) => {
+server.delete('/api/physicists/:id', (req, res) => {
     Physicist.deletePhysicist(req.params.id)
         .then(() => {
             res.status(201)
