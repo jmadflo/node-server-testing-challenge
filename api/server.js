@@ -45,7 +45,7 @@ server.post('/api/physicists', (req, res) => {
 server.delete('/api/physicists/:id', (req, res) => {
     Physicist.deletePhysicist(req.params.id)
         .then(() => {
-            res.status(201)
+            res.status(201).json({ message: 'Physicist was deleted'})
         })
         .catch(() => {
             res.status(500).json({ message: 'Physicist could not be deleted'})
